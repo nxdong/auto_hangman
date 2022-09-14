@@ -1,17 +1,18 @@
 from abc import ABC
 import typing
 
+
 class DataLoaderAbstractClass(ABC):
     def __init__(self):
-        self.words = []
+        self.words: typing.List[str] = []
 
     def __len__(self):
         return len(self.words)
 
     def __iter__(self):
         return self.DataIterator(self)
-    
-    def __getitem__(self,item):
+
+    def __getitem__(self, item) -> str:
         return self.words[item]
 
     class DataIterator:
@@ -30,5 +31,7 @@ class DataLoaderAbstractClass(ABC):
             word = self.__words.words[self.__index]
             self.__index += 1
             return word
-        
-DataLoaderClassType = typing.TypeVar('DataLoaderClassType', bound='DataLoaderAbstractClass')
+
+
+DataLoaderClassType = typing.TypeVar(
+    'DataLoaderClassType', bound='DataLoaderAbstractClass')

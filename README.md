@@ -5,9 +5,9 @@
 ```bash
 python3 -m venv venv
 source ./venv/bin/activate
-pip3 install -r requirements_dev.txt
+pip3 install -r requirements.txt
 # or use aliyun
-pip3 install -r requirements_dev.txt -i https://mirrors.aliyun.com/pypi/simple/
+pip3 install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 ```
 
 run test
