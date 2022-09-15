@@ -16,11 +16,9 @@ class LetterFrequentlyStrategy(StrategyAbstractClass):
             for letter in word:
                 if letter.isalpha():
                     self.model[letter.lower()] += 1
-        print(self.model)
         self.list_model = sorted(self.model.items(),
                                  key=lambda x: x[1], reverse=True)
         self.predict_list = list(map(lambda x: x[0], self.list_model))
-        self.print_model()
 
     def print_model(self):
         total_count = sum(self.model.values())
@@ -34,5 +32,13 @@ class LetterFrequentlyStrategy(StrategyAbstractClass):
         print("predict_list:", self.predict_list)
         print("=================")
 
-    def get_frequently_letter(self):
+    def get_frequently_letters(self):
         return self.predict_list
+
+    def predict(self, pattern: str, used_letters: list = []):
+        for letter in self.predict_list:
+            if letter in used_letters:
+                continue
+            return letter
+
+        raise Exception("Invalied letter")

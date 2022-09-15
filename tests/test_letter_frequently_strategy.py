@@ -13,6 +13,6 @@ def test_letter_frequently():
 
     top10 = ['e', 'i', 't', 'r', 'a', 'n', 'o', 's', 'l', 'c']
 
-    assert top10 == strategy.get_frequently_letter()[:10]
+    assert top10 == strategy.get_frequently_letters()[:10]
 
 
