@@ -1,5 +1,6 @@
 from .data_loaders import TextLoader
 from .stratgegies import LetterFrequentlyStrategy
+from .stratgegies import LetterOrderStrategy
 
 
 def guess_next_letter(pattern, used_letters=[], word_list=['about', 'abound', ...]):
@@ -15,12 +16,12 @@ def guess_next_letter(pattern, used_letters=[], word_list=['about', 'abound', ..
 
     strategy = LetterFrequentlyStrategy()
     strategy.start_train(word_list)
-    strategy.print_model()
+    # strategy.print_model()
     return strategy.predict(pattern, used_letters)
 
 
 
-def get_word_patten(word: str, used_letters=[]) -> str:
+def get_word_pattern(word: str, used_letters=[]) -> str:
     '''get word patten'''
     letters = set(used_letters)
     pattern = list(word)
